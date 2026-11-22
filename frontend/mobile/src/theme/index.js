@@ -6,21 +6,21 @@ export const PALETTE = {
   
   borderSubtle: '#E2E8F0',
   borderStrong: '#CBD5E1',
-  borderDark: '#0F172A',
+  borderDark: '#1E293B',
 
   textPrimary: '#0F172A',
   textSecondary: '#475569',
   textMuted: '#94A3B8',
   textInverse: '#FFFFFF',
 
-  primary: '#0F172A',
-  primaryHover: '#1E293B',
+  primary: '#2563EB',
+  primaryHover: '#1D4ED8',
   accent: '#2563EB',
   accentDark: '#1D4ED8',
 
-  messageSentBg: '#1E293B',
+  messageSentBg: '#2563EB',
   messageSentText: '#FFFFFF',
-  messageSentMeta: '#94A3B8',
+  messageSentMeta: '#BFDBFE',
 
   messageReceivedBg: '#FFFFFF',
   messageReceivedText: '#0F172A',
@@ -28,7 +28,7 @@ export const PALETTE = {
   messageReceivedMeta: '#64748B',
 
   statusOnline: '#10B981',
-  danger: '#DC2626',
+  danger: '#EF4444',
 };
 
 export const AVATAR_COLORS = [
@@ -40,7 +40,8 @@ export const AVATAR_COLORS = [
   '#F59E0B', // Amber
   '#EC4899', // Pink
   '#14B8A6', // Teal
-  '#64748B', // Slate
+  '#F43F5E', // Rose
+  '#06B6D4', // Cyan
 ];
 
 export function getDeterministicColor(str) {

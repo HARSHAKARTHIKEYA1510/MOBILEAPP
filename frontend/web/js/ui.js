@@ -13,8 +13,8 @@ const UI = {
     '#F59E0B', // Amber
     '#EC4899', // Pink
     '#14B8A6', // Teal
-    '#64748B', // Slate
-    '#D97706', // Ochre
+    '#F43F5E', // Rose
+    '#06B6D4', // Cyan
   ],
 
   getDeterministicColor(str) {
