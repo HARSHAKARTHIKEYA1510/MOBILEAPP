@@ -657,9 +657,9 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   msgBubble: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 8,
+    paddingHorizontal: 14,
+    paddingVertical: 9,
+    borderRadius: 14,
   },
   msgBubbleWithImage: {
     paddingHorizontal: 6,
@@ -668,13 +668,13 @@ const styles = StyleSheet.create({
   },
   bubbleSent: {
     backgroundColor: PALETTE.messageSentBg,
-    borderBottomRightRadius: 2,
+    borderBottomRightRadius: 4,
   },
   bubbleReceived: {
     backgroundColor: PALETTE.messageReceivedBg,
     borderWidth: 1,
     borderColor: PALETTE.messageReceivedBorder,
-    borderBottomLeftRadius: 2,
+    borderBottomLeftRadius: 4,
   },
   msgImage: {
     width: 220,
@@ -733,7 +733,7 @@ const styles = StyleSheet.create({
   previewThumb: {
     width: 54,
     height: 54,
-    borderRadius: 6,
+    borderRadius: 8,
     borderWidth: 1,
     borderColor: PALETTE.borderStrong,
     backgroundColor: PALETTE.bgSubtle,
@@ -769,13 +769,13 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: PALETTE.borderSubtle,
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 10,
     gap: 8,
   },
   attachBtn: {
     width: 38,
     height: 38,
-    borderRadius: 8,
+    borderRadius: 10,
     backgroundColor: PALETTE.bgSubtle,
     borderWidth: 1,
     borderColor: PALETTE.borderSubtle,
@@ -789,8 +789,8 @@ const styles = StyleSheet.create({
     backgroundColor: PALETTE.bgSubtle,
     borderWidth: 1,
     borderColor: PALETTE.borderSubtle,
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: 18,
+    paddingHorizontal: 14,
     paddingTop: 8,
     paddingBottom: 8,
     fontSize: 13.5,
@@ -799,7 +799,7 @@ const styles = StyleSheet.create({
   sendBtn: {
     width: 38,
     height: 38,
-    borderRadius: 8,
+    borderRadius: 10,
     backgroundColor: PALETTE.primary,
     alignItems: 'center',
     justifyContent: 'center',
