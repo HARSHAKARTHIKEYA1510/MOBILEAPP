@@ -1,0 +1,17 @@
+{
+  "name": "workspace-chat-5th-sem",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack Workspace Chat App (NestJS Backend + Web UI + Expo Mobile App)",
+  "scripts": {
+    "start": "bash ./start.sh",
+    "install:all": "npm --prefix backend install && npm --prefix frontend/mobile install",
+    "db:up": "docker compose --env-file backend/.env up -d mongo",
+    "backend": "npm --prefix backend run start:dev",
+    "backend:bot": "npm --prefix backend run start:dev:bot",
+    "backend:build": "npm --prefix backend run build",
+    "mobile": "cd frontend/mobile && npx expo start --lan",
+    "docker:up": "docker compose --env-file backend/.env up --build",
+    "docker:down": "docker compose --env-file backend/.env down"
+  }
+}
