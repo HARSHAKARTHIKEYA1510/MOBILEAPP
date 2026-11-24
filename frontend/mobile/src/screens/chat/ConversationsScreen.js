@@ -10,15 +10,21 @@ import {
   RefreshControl,
   SafeAreaView,
   StatusBar,
+  useWindowDimensions,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { api } from '../../services/api';
-import { PALETTE, getDeterministicColor, getInitials, formatRelative } from '../../theme';
+import { PALETTE, getDeterministicColor, getInitials, formatRelative, isSmallPhone, isTablet, sp } from '../../theme';
 import AuthModal from './AuthModal';
 import NewChatModal from './NewChatModal';
 import ArchivedMessagesModal from './ArchivedMessagesModal';
 
 export default function ConversationsScreen({ navigation }) {
+  const { width: W } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const avatarSize = isTablet ? 52 : isSmallPhone ? 38 : 44;
+
   const [conversations, setConversations] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [allUsers, setAllUsers] = useState([]);
@@ -111,8 +117,8 @@ export default function ConversationsScreen({ navigation }) {
         activeOpacity={0.7}
         onPress={() => navigation.navigate('ChatRoom', { conversation: item, title })}
       >
-        <View style={[styles.avatar, { backgroundColor: color }]}>
-          <Text style={styles.avatarText}>{initials}</Text>
+        <View style={[styles.avatar, { backgroundColor: color, width: avatarSize, height: avatarSize }]}>
+          <Text style={[styles.avatarText, { fontSize: sp(isSmallPhone ? 13 : 15) }]}>{initials}</Text>
         </View>
 
         <View style={styles.convContent}>
@@ -137,7 +143,7 @@ export default function ConversationsScreen({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
       <StatusBar barStyle="dark-content" backgroundColor={PALETTE.bgSurface} />
 
       {/* App Bar */}
@@ -319,8 +325,8 @@ const styles = StyleSheet.create({
     backgroundColor: PALETTE.bgSurface,
     borderBottomWidth: 1,
     borderBottomColor: PALETTE.borderSubtle,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: isSmallPhone ? 12 : 16,
+    paddingVertical: isSmallPhone ? 9 : 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -390,10 +396,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   userChipName: {
-    fontSize: 12,
+    fontSize: sp(12),
     fontWeight: '600',
     color: PALETTE.textPrimary,
-    maxWidth: 90,
+    maxWidth: isSmallPhone ? 60 : 90,
   },
   newChatBtn: {
     width: 34,
@@ -494,11 +500,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: PALETTE.bgSurface,
-    paddingHorizontal: 16,
-    paddingVertical: 13,
+    paddingHorizontal: isSmallPhone ? 12 : 16,
+    paddingVertical: isSmallPhone ? 10 : 13,
     borderBottomWidth: 1,
     borderBottomColor: PALETTE.borderSubtle,
-    gap: 12,
+    gap: isSmallPhone ? 10 : 12,
   },
   avatar: {
     width: 44,
@@ -509,7 +515,7 @@ const styles = StyleSheet.create({
   },
   avatarText: {
     color: '#FFFFFF',
-    fontSize: 15,
+    fontSize: sp(15),
     fontWeight: '700',
   },
   convContent: {

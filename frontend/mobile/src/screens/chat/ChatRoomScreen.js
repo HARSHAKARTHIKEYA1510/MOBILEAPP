@@ -13,11 +13,13 @@ import {
   Image,
   Alert,
   Modal,
+  useWindowDimensions,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { api } from '../../services/api';
-import { PALETTE, getDeterministicColor, getInitials, formatTime } from '../../theme';
+import { PALETTE, getDeterministicColor, getInitials, formatTime, isTablet, sp } from '../../theme';
 import DetailsModal from './DetailsModal';
 import ArchivedMessagesModal from './ArchivedMessagesModal';
 
@@ -51,6 +53,9 @@ function parseMessageItem(item) {
 
 export default function ChatRoomScreen({ route, navigation }) {
   const { conversation, title } = route.params;
+  const { width: W } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const msgMaxWidth = isTablet ? '60%' : '84%';
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
@@ -447,7 +452,7 @@ export default function ChatRoomScreen({ route, navigation }) {
       {/* Composer Input */}
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? insets.top + 44 : 0}
       >
         {/* Selected Image Preview Strip */}
         {selectedImage && (
@@ -468,7 +473,7 @@ export default function ChatRoomScreen({ route, navigation }) {
           </View>
         )}
 
-        <View style={styles.composerBar}>
+        <View style={[styles.composerBar, { paddingBottom: Math.max(10, insets.bottom + 6) }]}>
           <TouchableOpacity
             style={styles.attachBtn}
             onPress={handleImageButtonPress}
@@ -625,7 +630,7 @@ const styles = StyleSheet.create({
   msgRow: {
     flexDirection: 'row',
     gap: 8,
-    maxWidth: '82%',
+    maxWidth: isTablet ? '60%' : '84%',
   },
   msgRowSent: {
     alignSelf: 'flex-end',
@@ -769,7 +774,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: PALETTE.borderSubtle,
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
     gap: 8,
   },
   attachBtn: {

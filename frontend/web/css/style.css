@@ -1248,60 +1248,186 @@ html, body {
 }
 
 /* ─── Responsive Adjustments ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .top-nav {
-    padding: 0 12px;
+
+/* ── Tablet: 769px – 1024px ─────────────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    min-width: 240px;
+    max-width: 280px;
   }
 
-  .brand-badge {
-    display: none;
-  }
-
+  .brand-badge,
   .status-pill {
     display: none;
   }
 
+  .message-row {
+    max-width: 80%;
+  }
+}
+
+/* ── Mobile: ≤ 768px ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .top-nav {
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  .brand-badge,
+  .status-pill {
+    display: none;
+  }
+
+  .switch-account-btn {
+    display: none;
+  }
+
+  /* Mobile menu toggle — shown only on mobile */
+  #mobile-menu-btn {
+    display: flex !important;
+  }
+
   .main-layout {
+    position: relative;
     flex-direction: column;
   }
 
+  /* Sidebar: full-screen overlay, hidden by default, slides in from left */
   .sidebar {
+    position: fixed;
+    top: 52px;
+    left: 0;
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    height: 40vh;
+    height: calc(100dvh - 52px);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 100;
     border-right: none;
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: none;
+    overflow-y: auto;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Overlay backdrop when sidebar is open */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 52px 0 0 0;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 99;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
   }
 
   .chat-container {
-    height: 60vh;
+    width: 100%;
+    height: calc(100dvh - 52px);
   }
 
   .message-row {
-    max-width: 88%;
+    max-width: 90%;
   }
 
   .details-drawer {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 52px;
     right: 0;
     bottom: 0;
-    width: 280px;
-    z-index: 30;
+    width: 85%;
+    max-width: 300px;
+    z-index: 110;
     box-shadow: var(--shadow-modal);
   }
 
+  /* Modal responsive */
+  .modal-card {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    margin: 16px auto;
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+  }
+
+  .modal-user-list {
+    max-height: 220px;
+  }
+
+  /* Font scaling */
+  html, body {
+    font-size: 13px;
+  }
+
   #toast-container {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
   }
 
   .toast {
     min-width: 0;
     max-width: 100%;
   }
+
+  /* Input hint compact */
+  .input-hint {
+    font-size: 11px;
+  }
 }
 
+/* ── Small phones: ≤ 480px ───────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .top-nav {
+    padding: 0 10px;
+  }
+
+  .brand-title {
+    font-size: 14px;
+  }
+
+  .user-profile-name {
+    display: none;
+  }
+
+  .chat-input-container {
+    padding: 8px 10px 10px;
+  }
+
+  .message-bubble {
+    font-size: 13px;
+    padding: 8px 11px;
+  }
+
+  .message-row {
+    max-width: 93%;
+  }
+
+  .chat-header {
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .chat-header-name {
+    font-size: 13px;
+  }
+
+  .type-pill {
+    display: none;
+  }
+
+  .modal-card {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+  }
+
+  html, body {
+    font-size: 12.5px;
+  }
+}
 

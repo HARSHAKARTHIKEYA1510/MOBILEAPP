@@ -116,6 +116,37 @@ class ChatApp {
       this.updateThemeButtonIcon(window.store.state.theme);
     });
 
+    // Mobile sidebar toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+    const openSidebar = () => {
+      sidebar && sidebar.classList.add('mobile-open');
+      sidebarOverlay && sidebarOverlay.classList.add('active');
+    };
+    const closeSidebar = () => {
+      sidebar && sidebar.classList.remove('mobile-open');
+      sidebarOverlay && sidebarOverlay.classList.remove('active');
+    };
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        if (sidebar && sidebar.classList.contains('mobile-open')) {
+          closeSidebar();
+        } else {
+          openSidebar();
+        }
+      });
+    }
+
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    // Store reference so we can close sidebar when a conversation is opened
+    this._closeSidebar = closeSidebar;
+
     // Switch account / user badge
     document.getElementById('switch-account-btn').addEventListener('click', () => {
       this.showAuthModal(false);
@@ -435,6 +466,9 @@ class ChatApp {
   async selectConversation(convId) {
     window.store.setActiveConversation(convId);
     this.renderConversationList();
+
+    // On mobile, close the sidebar when a conversation is selected
+    if (this._closeSidebar) this._closeSidebar();
 
     const conv = window.store.state.conversations.find((c) => c.id === convId);
     if (!conv) return;

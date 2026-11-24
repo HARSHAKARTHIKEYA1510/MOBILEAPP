@@ -1,3 +1,17 @@
+import { Dimensions, PixelRatio } from 'react-native';
+
+const dim = Dimensions.get('window');
+export const SCREEN_W = dim.width;
+export const SCREEN_H = dim.height;
+export const isSmallPhone = SCREEN_W < 380;
+export const isTablet = SCREEN_W >= 768;
+/** Percentage of screen width */
+export const wp = (pct) => (SCREEN_W * pct) / 100;
+/** Percentage of screen height */
+export const hp = (pct) => (SCREEN_H * pct) / 100;
+/** Scale a size down on small phones */
+export const sp = (size) => (isSmallPhone ? size * 0.88 : size);
+
 export const PALETTE = {
   bgCanvas: '#F8FAFC',
   bgSurface: '#FFFFFF',
