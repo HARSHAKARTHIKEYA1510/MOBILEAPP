@@ -1,8 +1,8 @@
 // Mobile API Client for Nova
-// Uses EXPO_PUBLIC_API_URL from .env if defined, otherwise defaults to local LAN IP (http://10.7.11.169:3000).
+// Defaults to the deployed Render backend (override with EXPO_PUBLIC_API_URL in .env if needed).
 export const BASE_URL = (
   process.env.EXPO_PUBLIC_API_URL ||
-  'http://10.7.11.169:3000'
+  'https://nova-chat-backend-ve3j.onrender.com'
 ).replace(/\/+$/, '');
 
 export type User = { id: string; name: string; bio?: string | null };
