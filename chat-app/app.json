@@ -2,17 +2,17 @@
   "expo": {
     "name": "Nova",
     "slug": "nova-chat",
-    "owner": "iampraneeth1116",
+    "owner": "harshakarthikeya",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.praneeth.chatapp"
+      "bundleIdentifier": "com.harshakarthikeya.novachat"
     },
     "android": {
-      "package": "com.praneeth.chatapp",
+      "package": "com.harshakarthikeya.novachat",
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "backgroundColor": "#EEF2FF",
@@ -54,7 +54,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "f42fdac9-eb52-4bb7-aeb0-18f707e7dc93"
+        "projectId": "03d6955d-d0d2-4aed-8437-7bf4fe73d94d"
       }
     }
   }
