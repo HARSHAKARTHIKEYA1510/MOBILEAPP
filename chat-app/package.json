@@ -1,0 +1,44 @@
+{
+  "name": "nova-chat",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@prisma/client": "^6.19.3",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "dotenv": "^18.0.10",
+    "expo": "~58.0.26",
+    "expo-build-properties": "~58.0.12",
+    "expo-constants": "~58.0.16",
+    "expo-device": "~58.0.5",
+    "expo-font": "~58.0.12",
+    "expo-image-manipulator": "~58.0.16",
+    "expo-image-picker": "~58.0.10",
+    "expo-notifications": "~58.1.9",
+    "expo-status-bar": "~58.0.5",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.11.1"
+  },
+  "devDependencies": {
+    "@types/react": "~19.3.0",
+    "prisma": "^6.19.3",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "start:clear": "expo start -c",
+    "tunnel": "expo start --tunnel",
+    "tunnel:clear": "expo start --tunnel -c",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "server": "node server/index.mjs",
+    "server:dev": "node --watch server/index.mjs",
+    "build:server": "prisma generate",
+    "typecheck": "tsc --noEmit",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push"
+  },
+  "private": true
+}
