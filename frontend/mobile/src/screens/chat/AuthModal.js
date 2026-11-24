@@ -15,11 +15,11 @@ import { api, getDetectedBackendUrl } from '../../services/api';
 import { PALETTE } from '../../theme';
 
 const PRESET_USERS = [
+  { name: 'Harsha', pass: 'harsha@123' },
   { name: 'Varun', pass: 'varun@udata' },
   { name: 'dinesh', pass: 'pass123' },
   { name: 'Alice', pass: 'pass123' },
   { name: 'Bob', pass: 'pass123' },
-  { name: 'Charlie', pass: 'pass123' },
 ];
 
 export default function AuthModal({ visible, onClose, onSuccess, currentUser }) {

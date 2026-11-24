@@ -15,8 +15,8 @@ class ApiClient {
         : 'http://localhost:3001';
 
     this.baseUrl = localStorage.getItem('chat_api_url') || origin;
-    this.username = localStorage.getItem('chat_username') || '';
-    this.password = localStorage.getItem('chat_password') || '';
+    this.username = localStorage.getItem('chat_username') || 'Harsha';
+    this.password = localStorage.getItem('chat_password') || 'harsha@123';
   }
 
   setBaseUrl(url) {

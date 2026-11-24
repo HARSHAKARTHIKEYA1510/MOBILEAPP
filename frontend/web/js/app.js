@@ -264,7 +264,7 @@ class ChatApp {
   renderQuickAccounts() {
     const container = document.getElementById('quick-accounts-list');
     const known = window.store.state.knownAccounts;
-    const defaults = ['Alice', 'Bob', 'Charlie', 'Ritesh'];
+    const defaults = ['Harsha', 'Alice', 'Bob', 'Charlie'];
     const merged = Array.from(new Set([...known, ...defaults]));
 
     container.innerHTML = merged.map((name) => `

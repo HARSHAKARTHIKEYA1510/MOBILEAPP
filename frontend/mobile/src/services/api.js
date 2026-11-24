@@ -68,9 +68,9 @@ export function getDetectedBackendUrl() {
 class ChatApiService {
   constructor() {
     this.baseUrl = getDetectedBackendUrl();
-    this.username = 'Varun';
-    this.password = 'varun@udata';
-    this.hasStoredCredentials = false;
+    this.username = 'Harsha';
+    this.password = 'harsha@123';
+    this.hasStoredCredentials = true;
     this.initialized = false;
     this.fileDataUriCache = new Map();
   }
